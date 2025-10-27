@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Latin Vocabulary Study App</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div class="app-container">
+        <aside id="word-wheel-container">
+            <button id="close-word-wheel-btn" class="modal-close">&times;</button>
+            <div id="word-wheel-title">Vocabulary List</div>
+            <ul id="word-wheel"></ul>
+            <div id="wheel-legend">
+                <span>Green</span> text indicates a word is in your Study List.
+            </div>
+        </aside>
+
+        <main id="main-content">
+            <div class="top-controls">
+                <button id="view-study-list-btn" class="btn btn-secondary">My Study List</button>
+                <div class="search-wrapper">
+                    <input type="text" id="search-input" placeholder="Type a Latin word...">
+                    <div id="suggestions-list"></div>
+                </div>
+                <button id="toggle-word-wheel-btn" class="btn btn-secondary">&#9776; Show Word List</button>
+            </div>
+            
+            <div id="result-display">
+                <div class="placeholder-text">
+                    <p>Search for a word or select one from the list to see its details.</p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <div id="mobile-menu-overlay"></div>
+
+    <!-- MODIFIED: Renamed IDs for clarity -->
+    <div id="privacy-notice-modal" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header"><h2>Welcome! (Privacy Notice)</h2></div>
+            <div class="modal-body">
+                <p>This app uses your browser's **Local Storage** to save your personal vocabulary study list.</p>
+                <p><b>Your data is stored only on this computer and within this browser.</b> It is never collected, analyzed, or sent anywhere else. This feature is provided for your convenience so your list is remembered between sessions.</p>
+                <p>By clicking "Acknowledge," you agree to the use of Local Storage for this purpose.</p>
+            </div>
+            <div class="modal-footer">
+                <button id="acknowledge-privacy-btn" class="btn btn-primary">Acknowledge</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="study-list-modal" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>My Study List</h2>
+                <button class="modal-close" id="close-study-list-modal">&times;</button>
+            </div>
+            <div class="modal-body" id="study-list-body">
+                <ul id="study-list-ul"></ul>
+                <p id="study-list-placeholder" style="display: none;">Your list is empty. Add words from the dictionary to get started!</p>
+            </div>
+            <div class="modal-footer">
+                <button id="import-list-btn" class="btn btn-secondary">Import TSV</button>
+                <input type="file" id="import-file-input" accept=".tsv,.txt" style="display: none;">
+                <button id="copy-list-btn" class="btn btn-primary">Copy to Clipboard</button>
+                <button id="download-list-btn" class="btn btn-primary">Download as TSV</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
